@@ -177,9 +177,9 @@ Common issues and solutions:
 - PHP Compatibility: 7.4+
 
 ### Support Resources
-- Plugin Homepage: nil
-- Documentation: nil
-- Support Email: anunobip@assiniboine.net
+- Plugin Homepage: https://paulanunobi.com/custom-location-weather
+- Documentation: https://paulanunobi.com/custom-location-weather
+- Support Email: hello@paulanunobi.com
 
 ### Future Updates
 Planned features for future releases:
