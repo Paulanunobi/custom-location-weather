@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="display:none">
+  <!-- Clear Sky -->
+  <symbol id="clear" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+    <path d="M50 25V10" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M50 90V75" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M25 50H10" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M90 50H75" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M32 32L22 22" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M78 78L68 68" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M32 68L22 78" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+    <path d="M78 22L68 32" stroke="#FFD700" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Clouds -->
+  <symbol id="clouds" viewBox="0 0 100 100">
+    <path d="M25,60 Q10,60 10,45 Q10,30 25,30 Q25,10 50,10 Q75,10 75,30 Q90,30 90,45 Q90,60 75,60 Z" fill="#B8B8B8"/>
+  </symbol>
+  
+  <!-- Rain -->
+  <symbol id="rain" viewBox="0 0 100 100">
+    <use href="#clouds" />
+    <line x1="30" y1="70" x2="25" y2="85" stroke="#4F95FF" stroke-width="3" stroke-linecap="round"/>
+    <line x1="50" y1="70" x2="45" y2="85" stroke="#4F95FF" stroke-width="3" stroke-linecap="round"/>
+    <line x1="70" y1="70" x2="65" y2="85" stroke="#4F95FF" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Snow -->
+  <symbol id="snow" viewBox="0 0 100 100">
+    <use href="#clouds" />
+    <circle cx="30" cy="75" r="2" fill="#B8B8B8"/>
+    <circle cx="50" cy="75" r="2" fill="#B8B8B8"/>
+    <circle cx="70" cy="75" r="2" fill="#B8B8B8"/>
+    <circle cx="40" cy="85" r="2" fill="#B8B8B8"/>
+    <circle cx="60" cy="85" r="2" fill="#B8B8B8"/>
+  </symbol>
+  
+  <!-- Thunderstorm -->
+  <symbol id="thunderstorm" viewBox="0 0 100 100">
+    <use href="#clouds" />
+    <path d="M45,60 L55,75 L45,75 L55,90" stroke="#FFD700" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Mist -->
+  <symbol id="mist" viewBox="0 0 100 100">
+    <line x1="20" y1="40" x2="80" y2="40" stroke="#B8B8B8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="10" y1="50" x2="90" y2="50" stroke="#B8B8B8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="20" y1="60" x2="80" y2="60" stroke="#B8B8B8" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+</svg>
