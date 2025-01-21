@@ -1,60 +1,105 @@
-# custom-location-weather
+=== Custom Location Weather ===
+Contributors: paulanunobi
+Donate link: https://paulanunobi.com/donate
+Tags: weather, location, temperature, weather-widget, openweathermap
+Requires at least: 6.0
+Tested up to: 6.4.2
+Requires PHP: 7.4
+Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-# Custom Location Weather Plugin Documentation
+Display current weather conditions and local time for any specified location using OpenWeatherMap API.
 
-## Overview
-The Custom Location Weather Plugin is a WordPress plugin that displays current weather conditions and local time for any specified location. It provides a customizable weather widget that can be inserted anywhere on your WordPress site using a shortcode.
+== Description ==
 
-### Key Features
-- Real-time weather data display using OpenWeatherMap API
-- Customizable location settings
-- Temperature unit toggle (Celsius/Fahrenheit)
-- Custom weather icons
-- Responsive design
-- Cached data to minimize API calls
-- Easy implementation via shortcode
+Custom Location Weather Plugin is a versatile WordPress plugin that displays real-time weather information and local time for any location worldwide. Perfect for travel websites, local businesses, or any site needing to display weather information.
 
-## Installation
+= Key Features =
+
+* Real-time weather data display using OpenWeatherMap API
+* Customizable location settings
+* Temperature unit toggle (Celsius/Fahrenheit)
+* Custom weather icons
+* Responsive design
+* Cached data to minimize API calls
+* Easy implementation via shortcode
+
+= Basic Usage =
+
+Simply use the shortcode `[custom_weather_time]` to display weather information on any post or page.
+
+= Display Options =
+
+The weather display includes:
+* Current temperature
+* Weather condition
+* Humidity level
+* Wind speed
+* Current date and time
+* Temperature unit toggle button
+
+== Installation ==
 
 1. Upload the `custom-location-weather` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Configure the plugin settings under Settings > Weather Display
+4. Obtain an API key from OpenWeatherMap:
+   * Visit https://openweathermap.org/api
+   * Create a free account
+   * Generate an API key
+   * Wait 2-4 hours for key activation
+5. Enter your API key and location settings in the plugin configuration
 
-## Configuration
+== Frequently Asked Questions ==
 
-### Required Setup
-1. Obtain an API key from OpenWeatherMap:
-   - Visit https://openweathermap.org/api
-   - Create a free account
-   - Generate an API key
-   - Wait 2-4 hours for key activation
+= Do I need an API key? =
 
-2. Configure plugin settings:
-   - Navigate to Settings > Weather Display
-   - Enter your OpenWeatherMap API key
-   - Set your desired location (city and country)
-   - Choose default temperature unit
+Yes, you need a free API key from OpenWeatherMap to use this plugin. Sign up at https://openweathermap.org/api.
 
-## Usage
+= How often is the weather data updated? =
 
-### Basic Implementation
-Insert the weather display using the shortcode:
-```
-[custom_weather_time]
-```
+Weather data is cached for 30 minutes to optimize performance and respect API limits.
 
-### Display Options
-The weather display includes:
-- Current temperature
-- Weather condition
-- Humidity level
-- Wind speed
-- Current date and time
-- Temperature unit toggle button
+= Can I display weather for multiple locations? =
 
-## Technical Documentation
+Currently, you can display one location per shortcode. Multiple location support is planned for future releases.
 
-### File Structure
+= What temperature units are supported? =
+
+The plugin supports both Celsius and Fahrenheit, with an easy toggle button for users to switch between units.
+
+= Is the plugin GDPR compliant? =
+
+Yes, the plugin does not collect any personal data. It only retrieves weather data from OpenWeatherMap based on the configured location.
+
+== Screenshots ==
+
+1. Weather display on frontend (screenshot-1.png)
+2. Plugin settings page (screenshot-2.png)
+3. Weather display with temperature toggle (screenshot-3.png)
+4. Mobile responsive view (screenshot-4.png)
+
+== Changelog ==
+
+= 1.0.0 =
+* Initial release
+* Basic weather display functionality
+* Location customization
+* Temperature unit toggle
+* Custom weather icons
+* Responsive design implementation
+* API integration with caching
+* Shortcode implementation
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+Initial release of Custom Location Weather Plugin. Includes all basic functionality for weather display.
+
+== Technical Details ==
+
+= File Structure =
 ```
 custom-location-weather/
 ├── custom-location-weather.php (Main plugin file)
@@ -67,124 +112,31 @@ custom-location-weather/
 │   ├── js/
 │   │   └── script.js (Frontend functionality)
 │   └── images/
-│       ├── clear.svg
-│       ├── clouds.svg
-│       ├── rain.svg
-│       ├── snow.svg
-│       ├── thunderstorm.svg
-│       └── mist.svg
+│       └── [weather icons]
 ```
 
-### Class Documentation
+= API Integration =
+* Provider: OpenWeatherMap
+* Endpoint: api.openweathermap.org/data/2.5/weather
+* Method: GET
+* Cache Duration: 30 minutes
 
-#### CustomLocationWeather
-Main plugin class handling core functionality.
+= Security =
+* Direct file access prevention
+* Data sanitization
+* XSS prevention
+* CSRF protection
+* Secure API key storage
 
-##### Properties:
-- `$instance` (private static): Stores the singleton instance
+== Support ==
 
-##### Methods:
-1. `get_instance()`
-   - Purpose: Implements singleton pattern
-   - Returns: CustomLocationWeather instance
+For support queries, please email hello@paulanunobi.com or visit our support page at https://paulanunobi.com/custom-location-weather.
 
-2. `enqueue_assets()`
-   - Purpose: Loads CSS and JavaScript files
-   - Hooks: wp_enqueue_scripts
+== Future Updates ==
 
-3. `add_admin_menu()`
-   - Purpose: Creates admin settings page
-   - Hooks: admin_menu
-
-4. `register_settings()`
-   - Purpose: Registers plugin settings
-   - Hooks: admin_init
-
-5. `get_weather_data()`
-   - Purpose: Fetches and caches weather data
-   - Returns: Array|false
-   - Caching: 30 minutes
-
-6. `get_weather_icon()`
-   - Purpose: Maps weather conditions to SVG icons
-   - Parameters: $weather_code (string)
-   - Returns: String (icon URL)
-
-7. `weather_time_shortcode()`
-   - Purpose: Generates shortcode output
-   - Parameters: $atts (array)
-   - Returns: String (HTML)
-
-### Settings Storage
-The plugin uses the following WordPress options:
-- `clw_api_key`: OpenWeatherMap API key
-- `clw_city`: Target city name
-- `clw_country_code`: Two-letter country code
-- `clw_default_unit`: Default temperature unit
-
-### API Integration
-- API Provider: OpenWeatherMap
-- Endpoint: `api.openweathermap.org/data/2.5/weather`
-- Request Method: GET
-- Parameters:
-  - q: City,Country
-  - appid: API Key
-  - units: metric
-
-### Caching
-- Weather data is cached using WordPress transients
-- Cache duration: 30 minutes
-- Cache key format: `weather_data_{city}_{country}`
-
-## Security Measures
-- Direct file access prevention
-- Data sanitization on input/output
-- API key secure storage
-- XSS prevention
-- CSRF protection in forms
-
-## Best Practices Implementation
-- WordPress coding standards compliance
-- Proper nonce verification
-- Responsive design principles
-- Accessible markup
-- Performance optimization through caching
-
-## Troubleshooting
-
-Common issues and solutions:
-1. Weather data not displaying
-   - Verify API key is entered correctly
-   - Confirm API key is activated
-   - Check city/country spelling
-
-2. Incorrect location data
-   - Verify city name spelling
-   - Ensure correct country code
-   - Clear WordPress cache
-
-3. Temperature not updating
-   - Clear browser cache
-   - Check JavaScript console
-   - Verify jQuery loading
-
-## Support and Maintenance
-
-### Version Updates
-- Current Version: 1.0.0
-- Last Updated: December 2024
-- WordPress Compatibility: 6.0+
-- PHP Compatibility: 7.4+
-
-### Support Resources
-- Plugin Homepage: https://paulanunobi.com/custom-location-weather
-- Documentation: https://paulanunobi.com/custom-location-weather
-- Support Email: hello@paulanunobi.com
-
-### Future Updates
-Planned features for future releases:
-- Multiple location support
-- Extended forecast display
-- Additional customization options
-- Widget implementation
-- Weather alerts integration
+Planned features for upcoming releases:
+* Multiple location support
+* Extended forecast display
+* Additional customization options
+* Widget implementation
+* Weather alerts integration
