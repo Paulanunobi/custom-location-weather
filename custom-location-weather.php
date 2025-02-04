@@ -1,15 +1,24 @@
 <?php
 /**
- * Plugin Name: Custom Location Weather & Time
- * Plugin URI: https://paulanunobi.com/custom-location-weather
- * Description: Displays current weather and time for any location with temperature unit toggle
- * Version: 1.0.0
- * Author: Paul Anunobi
- * License: GPL v2 or later
- * Text Domain: custom-location-weather
- * 
- * This plugin provides a customizable weather and time display widget
- * that can be used anywhere on your WordPress site through a shortcode.
+ * Custom Location Weather
+ *
+ * @package           CustomLocationWeather
+ * @author            Paul Anunobi
+ * @copyright         2025 Paul Anunobi
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Custom Location Weather
+ * Plugin URI:        https://paulanunobi.com/custom-location-weather
+ * Description:       Displays current weather and time for any location with temperature unit toggle
+ * Version:           1.0.0
+ * Requires at least: 6.0
+ * Requires PHP:      7.2
+ * Author:            Paul Anunobi
+ * Author URI:        https://paulanunobi.com
+ * Text Domain:       custom-location-weather
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
 // Prevent direct file access
