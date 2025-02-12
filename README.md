@@ -1,6 +1,6 @@
 === Custom Location Weather ===
 Contributors: paulanunobi
-Donate link: https://paulanunobi.com/donate
+Donate link: https://paulanunobi.com/
 Tags: weather, location, temperature, weather-widget, openweathermap
 Requires at least: 6.0
 Tested up to: 6.7
